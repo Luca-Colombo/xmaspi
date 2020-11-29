@@ -1,0 +1,20 @@
+{
+  "name": "xmaspi.js",
+  "version": "1.0.0",
+  "description": "Simple christmas tree light controller.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "christmas",
+    "lights",
+    "tree"
+  ],
+  "author": "Luca Colombo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "onoff": "^6.0.1"
+  }
+}
