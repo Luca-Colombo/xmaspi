@@ -9,7 +9,7 @@ const { Gpio } = require('onoff');
 const config = require('./config.json');
 
 const leds = config.pins.map((pin) => new Gpio(pin, 'out'));
-const ligthsOnly = leds.slice(0,5);
+const ligthsOnly = leds.slice(0,6);
 
 app.use(express.static('public'));
 
