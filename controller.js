@@ -40,19 +40,19 @@ class Controller {
       if(!fs.existsSync(songFilePath)) {
         songFilePath = `songs/${fileName}.mp3`;
       }
-      const filePath = `songEncoding/${fileName}.csv`;
+      const encodingFilePath = `songEncoding/${fileName}.csv`;
 
       this.playing = true;
 
       const lights = this.getLightsPin();
 
       const rl = readline.createInterface({
-        input: fs.createReadStream(filePath),
+        input: fs.createReadStream(encodingFilePath),
         crlfDelay: Infinity,
       });
 
 
-      player.play(`${songName}`, (err) => {
+      player.play(`${songFilePath}`, (err) => {
         if (err) throw err;
       });
 

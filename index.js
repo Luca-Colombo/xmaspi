@@ -31,7 +31,7 @@ app.get('/off', (req, res) => {
 });
 app.get('/play', (req, res) => {
   res.json({ status: 'playing' });
-  controller.playSong('./songs/santatown.mp3');
+  controller.playSong('santatown');
 });
 // app.get('/dump', (req, res) => {
 //   controller.testFileParsing('santatown');
