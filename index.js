@@ -6,12 +6,7 @@ const controller = require('./controller');
 const app = express();
 const port = 3000;
 
-const { Gpio } = require('onoff');
-
 const config = require('./config.json');
-
-const leds = config.pins.map((pin) => new Gpio(pin, 'out'));
-const ligthsOnly = leds.slice(0, 6);
 
 app.use(express.static('public'));
 
@@ -56,7 +51,6 @@ app.listen(port, () => {
 process.on('SIGINT', () => {
   console.log('Unexporting leds...');
   controller.clearLeds();
-  leds.forEach((led) => led.unexport());
   console.log('Exiting...');
   process.exit();
 });

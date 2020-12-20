@@ -65,7 +65,7 @@ class Controller {
           const nextStep = line.split(',');
           const currTime = Date.now() - startTime;
           const nextStepTiming = parseInt(nextStep[0], 10);
-          while(currTime >= nextStepTiming) {
+          while(currTime <= nextStepTiming) {
             if (nextStepTiming <= currTime) {
               for(let i = 0; i < lights.length; i++) {
                 if(nextStep[i+1] === "255") { // Channel number 1 is encoded in second position ad so on.
