@@ -90,6 +90,10 @@ class Controller {
     }
   }
 
+  stop() {
+    this.playing = false;
+  }
+
   clearLeds() {
     this.turnOffLights();
     this.leds.forEach((led) => led.unexport());

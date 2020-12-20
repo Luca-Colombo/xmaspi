@@ -33,6 +33,10 @@ app.get('/play', (req, res) => {
   res.json({ status: 'playing' });
   controller.playSong('santatown');
 });
+app.get('/stop', (req, res) => {
+  res.json({ status: 'stopping' });
+  controller.stop();
+});
 // app.get('/dump', (req, res) => {
 //   controller.testFileParsing('santatown');
 //   res.json({ status: 'dumping' });
