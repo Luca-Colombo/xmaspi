@@ -35,7 +35,7 @@ class Controller {
   //   this.playing = false;
   // }
 
-  async playSong(fileName) {
+  playSong(fileName) {
     try {
       let songFilePath = `songs/${fileName}.wav`;
       if (!fs.existsSync(songFilePath)) {
@@ -125,7 +125,7 @@ class Controller {
     } catch (err) {
       console.error(err);
     } finally {
-      this.stop();
+      // this.stop();
     }
   }
 
