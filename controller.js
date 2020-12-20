@@ -80,7 +80,7 @@ class Controller {
                 }
               }
             }
-            const currTime = Date.now() - startTime;
+            currTime = Date.now() - startTime;
           }
         }
       }
