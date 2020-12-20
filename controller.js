@@ -60,7 +60,7 @@ class Controller {
 
       // eslint-disable-next-line no-restricted-syntax
       for await (const line of rl) {
-        while (this.playing) {
+        if (this.playing) {
           if (this.debug) console.log(line);
           const nextStep = line.split(',');
           const currTime = Date.now() - startTime;
