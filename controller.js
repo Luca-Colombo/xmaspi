@@ -19,11 +19,11 @@ class Controller {
   }
 
   turnOnLights() {
-    this.getLightsPin.forEach((led) => led.writeSync(1));
+    this.getLightsPin().forEach((led) => led.writeSync(1));
   }
 
   turnOffLights() {
-    this.getLightsPin.forEach((led) => led.writeSync(0));
+    this.getLightsPin().forEach((led) => led.writeSync(0));
   }
 
   // playSong(songName) {
