@@ -26,7 +26,7 @@ app.get('/off', (req, res) => {
 });
 app.get('/play', (req, res) => {
   res.json({ status: 'playing' });
-  controller.playSong('santatown');
+  controller.playSong('santatown').then();
 });
 app.get('/stop', (req, res) => {
   res.json({ status: 'stopping' });
