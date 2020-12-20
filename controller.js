@@ -63,7 +63,7 @@ class Controller {
         if (this.playing) {
           if (this.debug) console.log(line);
           const nextStep = line.split(',');
-          const currTime = Date.now() - startTime;
+          let currTime = Date.now() - startTime;
           const nextStepTiming = parseInt(nextStep[0], 10);
           while(currTime <= nextStepTiming) {
             if (nextStepTiming <= currTime) {
