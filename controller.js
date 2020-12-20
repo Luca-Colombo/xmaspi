@@ -52,7 +52,7 @@ class Controller {
       });
 
 
-      player.play(`${songFilePath}`, (err) => {
+      this.songProcess = player.play(`${songFilePath}`, (err) => {
         if (err) throw err;
       });
 
@@ -64,17 +64,20 @@ class Controller {
           if (this.debug) console.log(line);
           const nextStep = line.split(',');
           const currTime = Date.now() - startTime;
-          if (parseInt(nextStep[0], 10) <= currTime) {
-            for(let i = 0; i < lights.length; i++) {
-              if(nextStep[i+1] === "255") { // Channel number 1 is encoded in second position ad so on.
-                lights[i].writeSync(1);
-              } else {
-                lights[i].writeSync(0);
-              }
-
-              // if END command is found in the encoding file
-              if(nextStep[1] === "END"){
-                this.turnOffLights();
+          const nextStepTiming = parseInt(nextStep[0], 10);
+          while(currTime >= nextStepTiming) {
+            if (nextStepTiming <= currTime) {
+              for(let i = 0; i < lights.length; i++) {
+                if(nextStep[i+1] === "255") { // Channel number 1 is encoded in second position ad so on.
+                  lights[i].writeSync(1);
+                } else {
+                  lights[i].writeSync(0);
+                }
+  
+                // if END command is found in the encoding file
+                if(nextStep[1] === "END"){
+                  this.turnOffLights();
+                }
               }
             }
           }
@@ -86,12 +89,15 @@ class Controller {
     } catch (err) {
       console.error(err);
     } finally {
-      this.playing = false;
+      this.stop();
     }
   }
 
   stop() {
     this.playing = false;
+    if(this.songProcess.exitCode === null){
+      this.songProcess.kill();
+    }
   }
 
   clearLeds() {
