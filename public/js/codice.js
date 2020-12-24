@@ -32,7 +32,7 @@ const app = new Vue({
     },
     async playSong() {
       try {
-        const response = await fetch(`play?songId=${this.selectedSong.ID}`, {
+        const response = await fetch(`play?songId=${this.selectedSong}`, {
           method: 'GET',
         });
         console.log(response);

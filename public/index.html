@@ -21,7 +21,7 @@
                             <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
                         </button>
             
-                        <b-dropdown-item aria-role="listitem" v-for="song of songs" :key="song.ID">{{song.NAME}}</b-dropdown-item>
+                        <b-dropdown-item aria-role="listitem" v-for="song of songs" :key="song.ID" :value="song.ID">{{song.NAME}}</b-dropdown-item>
                     </b-dropdown>
                     <button class="button" @click="playSong">
                         <span>Avvia!</span>
