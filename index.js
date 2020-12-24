@@ -6,8 +6,6 @@ const controller = require('./controller');
 const app = express();
 const port = 3000;
 
-const config = require('./config.json');
-
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -25,12 +23,16 @@ app.get('/off', (req, res) => {
   // ligthsOnly.forEach((led) => led.writeSync(0));
 });
 app.get('/play', (req, res) => {
+  const { songId } = req.query;
+  controller.playSong(songId).then();
   res.json({ status: 'playing' });
-  controller.playSong('santatown').then();
 });
 app.get('/stop', (req, res) => {
-  res.json({ status: 'stopping' });
   controller.stop();
+  res.json({ status: 'stopped' });
+});
+app.get('/songs', (req, res) => {
+  res.json(controller.getSongList());
 });
 // app.get('/dump', (req, res) => {
 //   controller.testFileParsing('santatown');

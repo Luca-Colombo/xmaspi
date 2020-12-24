@@ -1,0 +1,62 @@
+[
+    {
+        "ENCODING_FILE": "santatown.csv",
+        "FILE_AUDIO": "santatown.mp3",
+        "ID": 2,
+        "NAME": "Santatown"
+    },
+    {
+        "ENCODING_FILE": "diocibenedira.csv",
+        "FILE_AUDIO": "diocibenedira.mp3",
+        "ID": 3,
+        "NAME": "Dio ci Benedira"
+    },
+    {
+        "ENCODING_FILE": "saranatale.csv",
+        "FILE_AUDIO": "saranatale.mp3",
+        "ID": 4,
+        "NAME": "Sara Natale"
+    },
+    {
+        "ENCODING_FILE": "jinglebells.csv",
+        "FILE_AUDIO": "jinglebells.wav",
+        "ID": 5,
+        "NAME": "Jingle Bells"
+    },
+    {
+        "ENCODING_FILE": "merryxmas.csv",
+        "FILE_AUDIO": "merryxmas.wav",
+        "ID": 6,
+        "NAME": "We wish you a merry xmas"
+    },
+    {
+        "ENCODING_FILE": "deckthehalls.csv",
+        "FILE_AUDIO": "deckthehalls.wav",
+        "ID": 7,
+        "NAME": "Deck the halls"
+    },
+    {
+        "ENCODING_FILE": "jinglebocelli.csv",
+        "FILE_AUDIO": "jinglebocelli.mp3",
+        "ID": 8,
+        "NAME": "Jingle Bocelli"
+    },
+    {
+        "ENCODING_FILE": "imperial.csv",
+        "FILE_AUDIO": "imperial.mp3",
+        "ID": 9,
+        "NAME": "Imperial march"
+    },
+    {
+        "ENCODING_FILE": "saranatale2.csv",
+        "FILE_AUDIO": "saranatale.mp3",
+        "ID": 10,
+        "NAME": "Sarà Natale 2"
+    },
+    {
+        "ENCODING_FILE": "lescloches.csv",
+        "FILE_AUDIO": "lescloches.mp3",
+        "ID": 11,
+        "NAME": "Les cloches"
+    }
+]

@@ -1,12 +1,13 @@
 // eslint-disable-next-line no-undef
 const player = require('play-sound')((opts = {}));
-const { once } = require('events');
-const fs = require('fs');
 // const readline = require('readline');
 const lineReader = require('line-reader');
 
+// eslint-disable-next-line import/no-unresolved
 const { Gpio } = require('onoff');
 const config = require('./config.json');
+
+const songManager = require('./songs/songManager');
 
 class Controller {
   constructor(debug = false) {
@@ -35,13 +36,14 @@ class Controller {
   //   this.playing = false;
   // }
 
-  playSong(fileName) {
+  playSong(songId) {
     try {
-      let songFilePath = `songs/${fileName}.wav`;
-      if (!fs.existsSync(songFilePath)) {
-        songFilePath = `songs/${fileName}.mp3`;
+      const songDet = songManager.getSong(songId);
+      if (songDet) {
+        throw new Error(`Song not found with id ${songId}`);
       }
-      const encodingFilePath = `songEncoding/${fileName}.csv`;
+      const songFilePath = `songs/music/${songDet.FILE_AUDIO}`;
+      const encodingFilePath = `songs/encoding/${songDet.ENCODING_FILE}`;
 
       this.playing = true;
 
@@ -84,6 +86,7 @@ class Controller {
           }
         } else {
           console.log('Stopping reading');
+          this.turnOffLights();
           return false;
         }
 
@@ -92,34 +95,6 @@ class Controller {
           return false;
         }
       });
-
-      // eslint-disable-next-line no-restricted-syntax
-      // for await (const line of rl) {
-      //   if (this.playing) {
-      //     if (this.debug) console.log(line);
-      //     const nextStep = line.split(',');
-      //     let currTime = Date.now() - startTime;
-      //     const nextStepTiming = parseInt(nextStep[0], 10);
-      //     while(currTime <= nextStepTiming) {
-      //       if (nextStepTiming <= currTime) {
-      //         for(let i = 0; i < lights.length; i++) {
-      //           if(nextStep[i+1] === "255") { // Channel number 1 is encoded in second position ad so on.
-      //             lights[i].writeSync(1);
-      //           } else {
-      //             lights[i].writeSync(0);
-      //           }
-
-      //           // if END command is found in the encoding file
-      //           if(nextStep[1] === "END"){
-      //             this.turnOffLights();
-      //           }
-      //         }
-      //       }
-      //       currTime = Date.now() - startTime;
-      //     }
-      //   }
-      // }
-      // rl.close();
 
       console.log('File processed.');
     } catch (err) {
@@ -139,6 +114,11 @@ class Controller {
   clearLeds() {
     this.turnOffLights();
     this.leds.forEach((led) => led.unexport());
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  getSongList() {
+    return songManager.songs;
   }
 }
 

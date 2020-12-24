@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" href="css/main.css"> -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
     </head>
     <body>
         <br>
@@ -11,36 +11,26 @@
         <div id="page">
             <section class="section">
                 <div class="container">
-                    <!-- <div class="button container" style="background-color: red;" @click="button = !button">
-                        <transition name="pulsante" enter-active-class="on" leave-active-class="off">
-                            <div v-if="button" type="button" class="button noborder" style="background-color:green; position: relative;"></div>
-                        </transition>
-                    </div> -->
-                    <!-- {{button}} -->
                     <button class="button is-success" @click="ligthOn">ON</button>
                     <button class="button is-danger" @click="ligthOff">Off</button>
-                    <!-- <button class="button is-primary" @click="startShow">Off</button> -->
                 </div>
-                <!-- <br>
-            <br>
-            <transition name="list">
-                <div  class="container middle">
-                    <table style="border-style: solid;">
-                        <tr v-for="(a, index) in canzoni">
-                            <th @click="chose = index">
-                                {{ a.nome }}
-                            </th>
-                            <th>
-                                <input type="radio" name="musica" :value="index" required v-model="chose">
-                            </th>
-                        </tr>  
-                    </table>
-                    <button :disabled="chose === ''" type="button" class="button" @click="start()"></button>
+                <div class="container">
+                    <b-dropdown aria-role="list" v-model="selectedSong">
+                        <button class="button is-primary" slot="trigger" slot-scope="{ active }">
+                            <span>{{selectedSong ? selectedSong.NAME : "Seleziona musica"}}</span>
+                            <b-icon :icon="active ? 'menu-up' : 'menu-down'"></b-icon>
+                        </button>
+            
+                        <b-dropdown-item aria-role="listitem" v-for="song of songs" :key="song.ID">{{song.NAME}}</b-dropdown-item>
+                    </b-dropdown>
+                    <button class="button" @click="playSong">
+                        <span>Avvia!</span>
+                    </button>
                 </div>
-            </transition> -->
             </section>
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/buefy/dist/components/dropdown"></script>
     <script type="text/JavaScript" src="js/codice.js"></script>
 </html>

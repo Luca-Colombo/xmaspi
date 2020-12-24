@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-const Controller = require('./controller');
+const Controller = require('./controllerTest');
 
 const app = express();
 const port = 3000;
@@ -19,8 +19,13 @@ app.get('/play', (req, res) => {
   Controller.playSong('./songs/santatown.mp3');
 });
 app.get('/dump', (req, res) => {
-  Controller.testFileParsing('santatown');
   res.json({ status: 'dumping' });
+  Controller.playSong('santatown');
+  console.log('dumped');
+});
+app.get('/stop', (req, res) => {
+  res.json({ status: 'stopping' });
+  Controller.stop();
 });
 
 app.listen(port, () => {

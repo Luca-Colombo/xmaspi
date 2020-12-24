@@ -1,0 +1,11 @@
+ID,NAME,ENCODING_FILE,FILE_AUDIO
+2,Santatown,songEncoding/santatown.csv,songs/santatown.mp3
+3,Dio ci Benedira,songEncoding/diocibenedira.csv,songs/diocibenedira.mp3
+4,Sara Natale,songEncoding/saranatale.csv,songs/saranatale.mp3
+5,Jingle Bells,songEncoding/jinglebells.csv,songs/jinglebells.wav
+6,We wish you a merry xmas,songEncoding/merryxmas.csv,songs/merryxmas.wav
+7,Deck the halls,songEncoding/deckthehalls.csv,songs/deckthehalls.wav
+8,Jingle Bocelli,songEncoding/jinglebocelli.csv,songs/jinglebocelli.mp3
+9,Imperial march,songEncoding/imperial.csv,songs/imperial.mp3
+10,Sarà Natale 2,songEncoding/saranatale2.csv,songs/saranatale.mp3
+11,Les cloches,songEncoding/lescloches.csv,songs/lescloches.mp3
