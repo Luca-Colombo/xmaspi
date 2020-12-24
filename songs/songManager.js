@@ -9,8 +9,8 @@ class SongManager {
     return this.songs;
   }
 
-  set songs(songs) {
-    this.songs = songs;
+  set songs(newSongs) {
+    this.songs = newSongs;
   }
 
   getSong(songId) {
