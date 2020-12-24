@@ -9,6 +9,10 @@ class SongManager {
     return this.songs;
   }
 
+  set songs(songs) {
+    this.songs = songs;
+  }
+
   getSong(songId) {
     const found = this.songs.find((s) => s.ID === songId);
     if (found) return { ...found };
