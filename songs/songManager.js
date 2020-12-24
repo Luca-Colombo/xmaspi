@@ -1,7 +1,7 @@
-const songs = require('./songs.json');
+const parsedSongs = require('./songs.json');
 
 class SongManager {
-  constructor() {
+  constructor(songs) {
     this.songs = songs;
   }
 
@@ -16,4 +16,4 @@ class SongManager {
   }
 }
 
-module.exports = new SongManager();
+module.exports = new SongManager(parsedSongs);
