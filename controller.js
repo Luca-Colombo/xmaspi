@@ -54,6 +54,8 @@ class Controller {
       //   crlfDelay: Infinity,
       // });
 
+      lights[lights.length - 1].writeSync(1);
+
       this.songProcess = player.play(`${songFilePath}`, (err) => {
         if (err) throw err;
       });
