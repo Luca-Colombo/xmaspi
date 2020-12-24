@@ -1,16 +1,8 @@
 const parsedSongs = require('./songs.json');
 
 class SongManager {
-  constructor(songs) {
-    this.songs = songs;
-  }
-
-  get songs() {
-    return this.songs;
-  }
-
-  set songs(newSongs) {
-    this.songs = newSongs;
+  constructor() {
+    this.songs = parsedSongs;
   }
 
   getSong(songId) {
@@ -20,4 +12,4 @@ class SongManager {
   }
 }
 
-module.exports = new SongManager(parsedSongs);
+module.exports = new SongManager();
