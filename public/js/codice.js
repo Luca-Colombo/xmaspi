@@ -41,4 +41,7 @@ const app = new Vue({
       }
     },
   },
+  created() {
+    this.fetchSongs();
+  },
 });
