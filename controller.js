@@ -28,6 +28,14 @@ class Controller {
     this.getLightsPin().forEach((led) => led.writeSync(0));
   }
 
+  turnOnSpeaker() {
+    this.leds[this.leds.length - 1].writeSync(1);
+  }
+
+  turnOffSpeaker() {
+    this.leds[this.leds.length - 1].writeSync(0);
+  }
+
   // playSong(songName) {
   //   this.playing = true;
   //   player.play(`${songName}`, (err) => {
@@ -54,7 +62,7 @@ class Controller {
       //   crlfDelay: Infinity,
       // });
 
-      lights[lights.length - 1].writeSync(1);
+      this.turnOnSpeaker();
 
       this.songProcess = player.play(`${songFilePath}`, (err) => {
         if (err) throw err;
@@ -81,6 +89,7 @@ class Controller {
                 if (nextStep[1] === 'END') {
                   if (this.debug) console.log('END reached.');
                   this.turnOffLights();
+                  this.turnOffSpeaker();
                   return false;
                 }
               }
@@ -90,12 +99,14 @@ class Controller {
         } else {
           if (this.debug) console.log('Stopping reading');
           this.turnOffLights();
+          this.turnOffSpeaker();
           return false;
         }
 
         if (last) {
           if (this.debug) console.log('File processed.');
           this.turnOffLights();
+          this.turnOffSpeaker();
           return false;
         }
       });
