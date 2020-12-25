@@ -39,7 +39,7 @@ class Controller {
   playSong(songId) {
     try {
       const songDet = songManager.getSong(songId);
-      if (songDet) {
+      if (!songDet) {
         throw new Error(`Song not found with id ${songId}`);
       }
       const songFilePath = `songs/music/${songDet.FILE_AUDIO}`;
@@ -79,6 +79,7 @@ class Controller {
 
                 // if END command is found in the encoding file
                 if (nextStep[1] === 'END') {
+                  if (this.debug) console.log('END reached.');
                   this.turnOffLights();
                   return false;
                 }
@@ -87,18 +88,17 @@ class Controller {
             currTime = Date.now() - startTime;
           }
         } else {
-          console.log('Stopping reading');
+          if (this.debug) console.log('Stopping reading');
           this.turnOffLights();
           return false;
         }
 
         if (last) {
+          if (this.debug) console.log('File processed.');
           this.turnOffLights();
           return false;
         }
       });
-
-      console.log('File processed.');
     } catch (err) {
       console.error(err);
     } finally {

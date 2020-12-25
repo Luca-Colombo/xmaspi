@@ -24,7 +24,8 @@ app.get('/off', (req, res) => {
 });
 app.get('/play', (req, res) => {
   const { songId } = req.query;
-  controller.playSong(songId).then();
+  const intSongId = parseInt(songId, 10);
+  controller.playSong(intSongId);
   res.json({ status: 'playing' });
 });
 app.get('/stop', (req, res) => {
