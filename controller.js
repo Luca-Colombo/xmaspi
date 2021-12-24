@@ -70,7 +70,6 @@ class Controller {
 
       const startTime = Date.now();
       lineReader.eachLine(encodingFilePath, (line, last) => {
-        console.log(last);
         if (this.playing) {
           if (this.debug) console.log(line);
           const nextStep = line.split(',');
@@ -135,4 +134,4 @@ class Controller {
   }
 }
 
-module.exports = new Controller(true);
+module.exports = new Controller(false);
