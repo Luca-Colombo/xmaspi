@@ -14,10 +14,15 @@ class Controller {
     this.debug = debug;
     this.playing = false;
     this.leds = config.pins.map((pin) => new Gpio(pin, 'out'));
+    this.leds.forEach((led) => led.writeSync(0)); // Turn off all the outputs
   }
 
   getLightsPin() {
     return this.leds.slice(0, 6);
+  }
+
+  areLightsOn() {
+    this.getLightsPin().every((led) => !!led.readSync());
   }
 
   turnOnLights() {
@@ -26,6 +31,14 @@ class Controller {
 
   turnOffLights() {
     this.getLightsPin().forEach((led) => led.writeSync(0));
+  }
+
+  toggleLights() {
+    if(this.areLightsOn()) {
+      this.turnOffLights();
+    } else {
+      this.turnOnLights();
+    }
   }
 
   turnOnSpeaker() {

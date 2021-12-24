@@ -22,6 +22,10 @@ app.get('/off', (req, res) => {
   res.json({ status: 'off' });
   // ligthsOnly.forEach((led) => led.writeSync(0));
 });
+app.get('/toggle', (req, res) => {
+  controller.toggleLights();
+  res.status(200).end();
+});
 app.get('/play', (req, res) => {
   const { songId } = req.query;
   const intSongId = parseInt(songId, 10);
