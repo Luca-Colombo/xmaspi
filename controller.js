@@ -69,6 +69,7 @@ class Controller {
       });
 
       const startTime = Date.now();
+      // eslint-disable-next-line consistent-return
       lineReader.eachLine(encodingFilePath, (line, last) => {
         if (this.playing) {
           if (this.debug) console.log(line);
