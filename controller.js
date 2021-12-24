@@ -22,7 +22,7 @@ class Controller {
   }
 
   areLightsOn() {
-    return !this.getLightsPin().every((led) => return !led.readSync());
+    return !this.getLightsPin().every((led) => !led.readSync());
   }
 
   turnOnLights() {
