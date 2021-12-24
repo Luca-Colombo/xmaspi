@@ -19,19 +19,19 @@
     },
     {
         "ENCODING_FILE": "jinglebells.csv",
-        "FILE_AUDIO": "jinglebells.wav",
+        "FILE_AUDIO": "jinglebells.mp3",
         "ID": 5,
         "NAME": "Jingle Bells"
     },
     {
         "ENCODING_FILE": "merryxmas.csv",
-        "FILE_AUDIO": "merryxmas.wav",
+        "FILE_AUDIO": "merryxmas.mp3",
         "ID": 6,
         "NAME": "We wish you a merry xmas"
     },
     {
         "ENCODING_FILE": "deckthehalls.csv",
-        "FILE_AUDIO": "deckthehalls.wav",
+        "FILE_AUDIO": "deckthehalls.mp3",
         "ID": 7,
         "NAME": "Deck the halls"
     },
@@ -58,5 +58,11 @@
         "FILE_AUDIO": "lescloches.mp3",
         "ID": 11,
         "NAME": "Les cloches"
+    },
+    {
+        "ENCODING_FILE": "white.csv",
+        "FILE_AUDIO": "white.mp3",
+        "ID": 12,
+        "NAME": "White Christmas"
     }
 ]
